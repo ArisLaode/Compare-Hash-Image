@@ -15,8 +15,8 @@ import sys
 app = Flask(__name__)
 
 # DB get id & url
-app.config['MONGO_DBNAME'] = 'online_news'
-app.config['MONGO_URI'] = 'mongodb://192.168.20.189:27017/online_news'
+app.config['MONGO_DBNAME'] = 'news'
+app.config['MONGO_URI'] = 'mongodb://192.168.20.189:27017/news'
 mongo = PyMongo(app)
 
 
@@ -43,9 +43,9 @@ def image_compare():
     start = datetime(2000, 1, 1)
     end = datetime(2000, 1, 29)
     
-    news_hash_01_2000 = mongo.db.news_hash_01_2000
+    collection = mongo.db.collection
 
-    hash_mongo = news_hash_01_2000.find({"pubdate": {"$gte": start, "$lte": end}}).limit(10)
+    hash_mongo = collection.find({"pubdate": {"$gte": start, "$lte": end}}).limit(10)
     
     for i in hash_mongo:
 
