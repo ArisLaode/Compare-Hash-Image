@@ -4,4 +4,5 @@ We will learn how to compare hash image from mongodb with url image &amp; path I
 Tools:
 - Python version 3.5.2
 - Flask
+- MongoDB
 - Visual Studio
